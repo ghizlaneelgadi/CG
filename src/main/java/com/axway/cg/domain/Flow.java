@@ -1,17 +1,17 @@
 package com.axway.cg.domain;
 
-
-
-
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 
+
 @Entity
-public class current_test {
+@Table(name = "CURRENT_TABLE")
+public class Flow {
+
 	
 	@Id
 	private Long Id;
@@ -33,36 +33,27 @@ public class current_test {
 	private String flowname;
 	private String priority;
 	private String status;
-	private String protocol;
 	private String sourceapp;
 	private String targetapp;
 	private String filename;
-	
-	
-	public String getSendtime() {
-		return sendtime;
-	}
-	public void setSendtime(String sendtime) {
-		this.sendtime = sendtime;
-	}
-	public String getEndtime() {
-		return endtime;
-	}
-	public void setEndtime(String endtime) {
-		this.endtime = endtime;
-	}
+	private String protocol;
 	public Long getId() {
 		return Id;
 	}
 	public void setId(Long id) {
 		Id = id;
 	}
-	
 	public String getSenddate() {
 		return senddate;
 	}
 	public void setSenddate(String senddate) {
 		this.senddate = senddate;
+	}
+	public String getSendtime() {
+		return sendtime;
+	}
+	public void setSendtime(String sendtime) {
+		this.sendtime = sendtime;
 	}
 	public String getEnddate() {
 		return enddate;
@@ -70,12 +61,13 @@ public class current_test {
 	public void setEnddate(String enddate) {
 		this.enddate = enddate;
 	}
-	public String getFlowidentifier() {
-		return flowidentifier;
+	public String getEndtime() {
+		return endtime;
 	}
-	public void setFlowidentifier(String flowidentifier) {
-		this.flowidentifier = flowidentifier;
+	public void setEndtime(String endtime) {
+		this.endtime = endtime;
 	}
+	
 	public String getFlowname() {
 		return flowname;
 	}
@@ -118,24 +110,15 @@ public class current_test {
 	public void setFilename(String filename) {
 		this.filename = filename;
 	}
-	@Override
-	public String toString() {
-		return "current_test [Id=" + Id + ", senddate=" + senddate + ", sendtime=" + sendtime + ", enddate=" + enddate
-				+ ", endtime=" + endtime + ", flowidentifier=" + flowidentifier + ", flowname=" + flowname
-				+ ", priority=" + priority + ", status=" + status + ", protocol=" + protocol + ", sourceapp="
-				+ sourceapp + ", targetapp=" + targetapp + ", filename=" + filename + "]";
+	public String getFlowidentifier() {
+		return flowidentifier;
+	}
+	public void setFlowidentifier(String flowidentifier) {
+		this.flowidentifier = flowidentifier;
 	}
 	
 	
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-
 }

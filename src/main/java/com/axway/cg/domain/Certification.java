@@ -12,17 +12,17 @@ import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 public class Certification {
 	
 	@Id
-	private Long Id_Cert;
+	private String Id_Cert;
 	private String state;
 	@JsonFormat(pattern = "yyyy-MM-dd", shape =Shape.STRING)
 	private String exp_Date;
 	private Long time_left;
 	
 	
-	public Long getId_Cert() {
+	public String getId_Cert() {
 		return Id_Cert;
 	}
-	public void setId_Cert(Long id_Cert) {
+	public void setId_Cert(String id_Cert) {
 		Id_Cert = id_Cert;
 	}
 	public String getState() {
