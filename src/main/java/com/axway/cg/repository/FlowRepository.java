@@ -23,10 +23,8 @@ public interface FlowRepository extends CrudRepository<Flow, Serializable>{
 	@Query("SELECT f FROM Flow f WHERE lower(f.flowidentifier) LIKE lower(concat('%',?1,'%'))"
 			+ "AND lower(f.flowname) LIKE lower(concat('%',?2,'%'))"
 			+ "AND lower(f.sourceapp) LIKE lower(concat('%',?3,'%'))"
-			+ "AND lower(f.targetapp) LIKE lower(concat('%',?4,'%'))"
-			+ "AND f.senddate LIKE %?5%"
-			+ "AND f.enddate LIKE %?6%")
-	public List<Flow> search(String flowidentifier, String flowname, String sourceapp, String targetapp, String senddate, String enddate);
+			+ "AND lower(f.targetapp) LIKE lower(concat('%',?4,'%'))")
+	public List<Flow> search(String flowidentifier, String flowname, String sourceapp, String targetapp);
 	
 	
 }

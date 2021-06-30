@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,25 +29,22 @@ public class flowController {
 	private FlowRepository flowRepository;
 
 	@GetMapping("flow")
+	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
 	public List<Flow> listAll(
 			@RequestParam("flowidentifier") String flowidentifier,
 			@RequestParam("flowname") String flowname,
 			@RequestParam("sourceapp") String sourceapp,
-			@RequestParam("targetapp") String targetapp,
-			@RequestParam("senddate") String senddate,
-			@RequestParam("enddate") String enddate) {
+			@RequestParam("targetapp") String targetapp)
+			 {
 		if (flowidentifier != null ) {
 			if (flowname != null) {
 				if(sourceapp != null) {
-					if (targetapp != null) {
-						if(senddate != null) {
-							if (enddate != null) {
-								return flowRepository.search(flowidentifier, flowname, sourceapp, targetapp, senddate, enddate);
+					if (targetapp != null) { {
+								return flowRepository.search(flowidentifier, flowname, sourceapp, targetapp);
 							}
 						}
-					}
-				}
-			}
+				}		}
+			
 		}
 		return (List<Flow>) flowRepository.findAll();
 		
@@ -54,6 +52,7 @@ public class flowController {
 	}
 
 	@GetMapping("flow/{id}")
+	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
 	public ResponseEntity<Flow> getFlowById(@PathVariable(value = "Id") Long flowId) throws ResourceNotFoundException {
 		Flow flow = flowRepository.findById(flowId)
 				.orElseThrow(() -> new ResourceNotFoundException("Flow not found for this id :: " + flowId));
@@ -61,6 +60,7 @@ public class flowController {
 	}
 
 	@GetMapping
+	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
 	public Iterable<Flow> findByFlowidentifierAndFlownameAndSourceappAndTargetapp(
 			@RequestParam("flowidentifier") String flowidentifier,
 			@RequestParam("flowname") String flowname,
@@ -83,6 +83,7 @@ public class flowController {
 	}
 	
 	@GetMapping("search")
+	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
 	public Iterable<Flow> findByFlowidentifierAndFlownameAndSourceappAndTargetappAndSenddateAndEnddate(
 			@RequestParam("flowidentifier") String flowidentifier,
 			@RequestParam("flowname") String flowname,

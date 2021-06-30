@@ -1,0 +1,53 @@
+PKIU20I  
+PKIU20I PKI
+PKIU20I Version 3.3.2 SP5 P0 20191029
+PKIU20I (C) Copyright AXWAY 1989-2018
+PKIU20I ====> Starting Session on 2021/04/16 Time is 11:07:48
+PKIU20I  
+ 
+  Date = 16/04/2021   Time = 11:07:48
+ 
+  PKI Fname = $CFTPKU                                                         
+ 
+  Certificates: 
+ 
+  Id.      Root     iNum T S C K E Exp.Date   Delivered to  Delivered by 
+  -------- -------- ---- - - - - - ---------- ------------- -------------
+  SGINT16  SGROOT16      I A x     30/12/2041 SG UniPass Se SG UniPass Ro
+  BAMCATST BAMCATST      R A x     08/12/2030 Serveur CFT E Serveur CFT E
+  CG_CA2   CG_CA2        R A x     26/11/2029 CG_SGMA       CG_SGMA      
+  FRONTAL  FRONTAL       R A x     26/11/2029 CG_SGMA_BU    CG_SGMA_BU   
+  FRONTAL_ FRONTAL_      R A x     26/11/2029 CG_SGMA       CG_SGMA      
+  LMVISSL  LMVISSL       R A x     21/05/2030 SGMA          SGMA         
+  NCRM     NCRM          R A x     11/03/2046 NCRM          NCRM         
+  NMCLCA   NMCLCA        R A x     26/03/2023 MCL           MCL          
+  PASSPORT PASSPORT      R A x     13/03/2029 PassPort      PassPort     
+  ROOTSGMA ROOTSGMA      R A x     21/05/2030 SGMA          SGMA         
+  ROOTSGMA ROOTSGMA      R A x     21/05/2030 RootSgma2     RootSgma2    
+  S2M_CA   S2M_CA        R A x     08/02/2025 sgma          sgma         
+  SCOTIBSG SCOTIBSG      R A x     07/02/2025 abb           abb          
+  SGROOT16 SGROOT16      R A x     31/12/2041 SG UniPass Ro SG UniPass Ro
+  BAM022   BAMCATST      U A x x   10/12/2021 SGMB Serveur  Serveur CFT E
+  FRONTAL  FRONTAL       U A x x   21/12/2021 10.4.1.40     CG_SGMA_BU   
+  FRONTAL_ FRONTAL_      U A x x   19/02/2022 Transfer CFT  CG_SGMA      
+  S2M_USR  S2M_CA        U A x x   08/02/2025 sgmausr       sgma         
+  SGMA1    NCRM          U A x x   11/03/2046 SGMA1         NCRM         
+  SGMB     NMCLCA        U A x x   24/03/2023 SGMB          MCL          
+  SG_USR   SCOTIBSG      U A x x   08/02/2025 abbusr        abb          
+  SOGB     NMCLCA        U A x x   24/03/2023 SOGB          MCL          
+  USERSGMA ROOTSGMA      U A x x   21/05/2030 UserSgma2     RootSgma2    
+ 
+ 
+  Entities: 
+ 
+  Id.                              Certificate list                 
+  -------------------------------- ---------------------------------
+  SSL_DEFAULT_C                    FRONTAL                          
+  SSL_DEFAULT_S                    FRONTAL                          
+ 
+ 
+PKIU00I LISTPKI  _ Correct ()
+PKIU20I Number of Command(s) 1
+PKIU20I Number of error(s)   0
+PKIU20I Ending Session on 2021/04/16 Time is 11:07:49
+PKIU20I Session active for  0:00:00
