@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.axway.cg.repository.UserRepository;
 import com.axway.cg.security.jwt.JwtUtils;
 import com.axway.cg.security.services.UserDetailsImpl;
@@ -68,10 +69,10 @@ public class AuthController {
 		List<String> roles = userDetails.getAuthorities().stream()
 				.map(item -> item.getAuthority())
 				.collect(Collectors.toList());
-
 		return ResponseEntity.ok(new JwtResponse(jwt, 
-												 userDetails.getId(), 
+												 userDetails.getId(),
 												 userDetails.getUsername(), 
+												 userDetails.getMail(), 
 												 roles));
 	}
 	
@@ -84,8 +85,15 @@ public class AuthController {
 					.body(new MessageResponse("Error: Username is already taken!"));
 		}
 
+		if (userRepository.existsByMail(signUpRequest.getMail())) {
+			return ResponseEntity
+					.badRequest()
+					.body(new MessageResponse("Error: Email is already in use!"));
+		}
+
 		// Create new user's account
 		User user = new User(signUpRequest.getUsername(), 
+							 signUpRequest.getMail(),
 							 encoder.encode(signUpRequest.getPassword()));
 
 		Set<String> strRoles = signUpRequest.getRole();
@@ -117,4 +125,14 @@ public class AuthController {
 
 		return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
 	}
+	
+	
+	
 }
+
+
+
+
+
+
+
